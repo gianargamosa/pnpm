@@ -211,13 +211,13 @@ importers:
     dependencies:
       '@pnpm/modules-yaml': 'link:../modules-yaml'
       '@pnpm/read-modules-dir': 'link:../read-modules-dir'
+      '@pnpm/shrinkwrap-file': 'link:../shrinkwrap-file'
       '@pnpm/types': 'link:../types'
       '@pnpm/utils': 'link:../utils'
       '@types/node': 10.12.11
       '@types/semver': 5.5.0
       dependency-path: 'link:../dependency-path'
       normalize-path: 3.0.0
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       resolve-link-target: 1.0.1
       semver: 5.6.0
     devDependencies:
@@ -236,6 +236,7 @@ importers:
       '@pnpm/logger': 2.1.0
       '@pnpm/modules-yaml': 2.0.1
       '@pnpm/read-modules-dir': 1.0.0
+      '@pnpm/shrinkwrap-file': 0.0.0
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
       '@pnpm/utils': 0.9.0
@@ -248,7 +249,6 @@ importers:
       mos-plugin-readme: 1.0.4
       mos-tap-diff: 1.0.0
       normalize-path: 3.0.0
-      pnpm-shrinkwrap: 8.1.6
       resolve-link-target: 1.0.1
       semver: 5.6.0
       tape: 4.9.1
@@ -281,9 +281,50 @@ importers:
       ts-node: ^7.0.0
       tslint: 5.11.0
       typescript: ^3.0.0
+  packages/filter-shrinkwrap:
+    dependencies:
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
+      '@pnpm/types': 'link:../types'
+      '@types/ramda': 0.25.39
+      dependency-path: 'link:../dependency-path'
+      ramda: 0.26.1
+    devDependencies:
+      '@pnpm/filter-shrinkwrap': 'link:'
+      '@pnpm/logger': 2.1.0
+      '@pnpm/tslint-config': 'link:../../utils/tslint-config'
+      '@types/tape': 4.2.32
+      '@types/tempy': 0.2.0
+      rimraf: 2.6.2
+      tape: 4.9.1
+      tempy: 0.2.1
+      ts-node: 6.2.0
+      tslint: /tslint/5.11.0/typescript@3.1.6
+      typescript: 3.1.6
+      write-yaml-file: 2.0.0
+      yaml-tag: 1.1.0
+    specifiers:
+      '@pnpm/filter-shrinkwrap': 'link:'
+      '@pnpm/logger': 2.1.0
+      '@pnpm/shrinkwrap-types': ^0.0.0
+      '@pnpm/tslint-config': 0.0.0
+      '@pnpm/types': 2.0.0
+      '@types/ramda': 0.25.39
+      '@types/tape': 4.2.32
+      '@types/tempy': 0.2.0
+      dependency-path: 2.0.1
+      ramda: 0.26.1
+      rimraf: 2.6.2
+      tape: 4.9.1
+      tempy: 0.2.1
+      ts-node: 6.2.0
+      tslint: 5.11.0
+      typescript: 3.1.6
+      write-yaml-file: 2.0.0
+      yaml-tag: 1.1.0
   packages/headless:
     dependencies:
       '@pnpm/core-loggers': 'link:../core-loggers'
+      '@pnpm/filter-shrinkwrap': 'link:../filter-shrinkwrap'
       '@pnpm/lifecycle': /@pnpm/lifecycle/3.0.2/@pnpm!logger@2.1.0
       '@pnpm/link-bins': 3.0.2
       '@pnpm/modules-cleaner': 'link:../modules-cleaner'
@@ -292,6 +333,8 @@ importers:
       '@pnpm/pkgid-to-filename': 2.0.0
       '@pnpm/read-package-json': 1.0.1
       '@pnpm/shamefully-flatten': 'link:../shamefully-flatten'
+      '@pnpm/shrinkwrap-file': 'link:../shrinkwrap-file'
+      '@pnpm/shrinkwrap-utils': 'link:../shrinkwrap-utils'
       '@pnpm/store-controller-types': 'link:../store-controller-types'
       '@pnpm/symlink-dependency': 'link:../symlink-dependency'
       '@pnpm/types': 'link:../types'
@@ -301,7 +344,6 @@ importers:
       graph-sequencer: 2.0.0
       p-limit: 2.0.0
       path-exists: 3.0.0
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       ramda: 0.26.1
     devDependencies:
       '@pnpm/assert-project': 'link:../../privatePackages/assert-project'
@@ -341,6 +383,7 @@ importers:
       '@pnpm/core-loggers': 1.0.0
       '@pnpm/default-fetcher': 2.0.6
       '@pnpm/default-resolver': 2.0.7
+      '@pnpm/filter-shrinkwrap': 0.0.0
       '@pnpm/headless': 'link:'
       '@pnpm/lifecycle': 3.0.2
       '@pnpm/link-bins': 3.0.2
@@ -353,6 +396,8 @@ importers:
       '@pnpm/read-manifests': 1.0.2
       '@pnpm/read-package-json': 1.0.1
       '@pnpm/shamefully-flatten': 1.0.4
+      '@pnpm/shrinkwrap-file': 0.0.0
+      '@pnpm/shrinkwrap-utils': 0.0.0
       '@pnpm/store-controller-types': 1.1.0
       '@pnpm/store-path': 1.0.4
       '@pnpm/symlink-dependency': 1.1.0
@@ -378,7 +423,6 @@ importers:
       p-limit: 2.0.0
       path-exists: 3.0.0
       pnpm-registry-mock: 2.4.0
-      pnpm-shrinkwrap: 8.1.6
       ramda: 0.26.1
       rimraf: 2.6.2
       rimraf-then: 1.0.1
@@ -444,6 +488,7 @@ importers:
       '@pnpm/core-loggers': 'link:../core-loggers'
       '@pnpm/package-bins': 2.0.0
       '@pnpm/read-modules-dir': 'link:../read-modules-dir'
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
       '@pnpm/store-controller-types': 'link:../store-controller-types'
       '@pnpm/types': 'link:../types'
       '@pnpm/utils': 'link:../utils'
@@ -451,7 +496,6 @@ importers:
       '@types/ramda': 0.25.38
       dependency-path: 'link:../dependency-path'
       fs-vacuum: 1.2.10
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       ramda: 0.26.1
       rimraf-then: 1.0.1
       util.promisify: 1.0.0
@@ -468,6 +512,7 @@ importers:
       '@pnpm/modules-cleaner': 'link:'
       '@pnpm/package-bins': 2.0.0
       '@pnpm/read-modules-dir': 1.0.0
+      '@pnpm/shrinkwrap-types': ^0.0.0
       '@pnpm/store-controller-types': 1.1.0
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
@@ -476,7 +521,6 @@ importers:
       '@types/ramda': 0.25.38
       dependency-path: 2.0.1
       fs-vacuum: 1.2.10
-      pnpm-shrinkwrap: 8.1.6
       ramda: 0.26.1
       rimraf: 2.6.2
       rimraf-then: 1.0.1
@@ -521,12 +565,12 @@ importers:
     dependencies:
       '@pnpm/npm-resolver': /@pnpm/npm-resolver/2.2.7/@pnpm!logger@2.1.0
       '@pnpm/read-package-json': 1.0.1
+      '@pnpm/shrinkwrap-file': 'link:../shrinkwrap-file'
       '@pnpm/store-path': 1.0.4
       '@pnpm/types': 'link:../types'
       '@pnpm/utils': 'link:../utils'
       '@types/node': 10.12.11
       dependency-path: 'link:../dependency-path'
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
     devDependencies:
       '@pnpm/logger': 2.1.0
       '@pnpm/outdated': 'link:'
@@ -543,6 +587,7 @@ importers:
       '@pnpm/npm-resolver': 2.2.7
       '@pnpm/outdated': 'link:'
       '@pnpm/read-package-json': 1.0.1
+      '@pnpm/shrinkwrap-file': 0.0.0
       '@pnpm/store-path': 1.0.4
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
@@ -552,7 +597,6 @@ importers:
       dependency-path: 2.0.1
       mos: 2.0.0-alpha.3
       mos-plugin-readme: 1.0.4
-      pnpm-shrinkwrap: 8.1.6
       tape: 4.9.1
       ts-node: 7.0.1
       tslint: 5.11.0
@@ -796,6 +840,7 @@ importers:
       '@pnpm/modules-yaml': 'link:../modules-yaml'
       '@pnpm/prepare': 'link:../../privatePackages/prepare'
       '@pnpm/read-package-json': 1.0.1
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
       '@pnpm/tslint-config': 'link:../../utils/tslint-config'
       '@types/byline': 4.2.31
       '@types/common-tags': 1.4.0
@@ -823,7 +868,6 @@ importers:
       path-exists: 3.0.0
       pnpm: 'link:'
       pnpm-registry-mock: 2.4.0
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       retry: 0.12.0
       rimraf: 2.6.2
       rimraf-then: 1.0.1
@@ -852,6 +896,7 @@ importers:
       '@pnpm/prepare': 0.0.0
       '@pnpm/read-package-json': 1.0.1
       '@pnpm/server': 1.1.2
+      '@pnpm/shrinkwrap-types': ^0.0.0
       '@pnpm/store-path': 1.0.4
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
@@ -919,7 +964,6 @@ importers:
       pnpm-file-reporter: 0.1.0
       pnpm-list: 5.0.0
       pnpm-registry-mock: 2.4.0
-      pnpm-shrinkwrap: 8.1.6
       process-exists: 3.1.0
       ramda: 0.26.1
       read-ini-file: 2.0.0
@@ -945,13 +989,45 @@ importers:
       write-json-file: 3.0.2
       write-pkg: 3.2.0
       write-yaml-file: 2.0.0
+  packages/prune-shrinkwrap:
+    dependencies:
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
+      '@pnpm/types': 'link:../types'
+      '@types/ramda': 0.25.39
+      dependency-path: 'link:../dependency-path'
+      ramda: 0.26.1
+    devDependencies:
+      '@pnpm/prune-shrinkwrap': 'link:'
+      '@pnpm/tslint-config': 'link:../../utils/tslint-config'
+      '@types/tape': 4.2.32
+      rimraf: 2.6.2
+      tape: 4.9.1
+      ts-node: 6.2.0
+      tslint: /tslint/5.11.0/typescript@3.1.6
+      typescript: 3.1.6
+      yaml-tag: 1.1.0
+    specifiers:
+      '@pnpm/prune-shrinkwrap': 'link:'
+      '@pnpm/shrinkwrap-types': ^0.0.0
+      '@pnpm/tslint-config': 0.0.0
+      '@pnpm/types': 2.0.0
+      '@types/ramda': 0.25.39
+      '@types/tape': 4.2.32
+      dependency-path: 2.0.1
+      ramda: 0.26.1
+      rimraf: 2.6.2
+      tape: 4.9.1
+      ts-node: 6.2.0
+      tslint: 5.11.0
+      typescript: 3.1.6
+      yaml-tag: 1.1.0
   packages/read-manifests:
     dependencies:
       '@pnpm/modules-yaml': 'link:../modules-yaml'
+      '@pnpm/shrinkwrap-file': 'link:../shrinkwrap-file'
       '@pnpm/types': 'link:../types'
       '@pnpm/utils': 'link:../utils'
       '@types/node': 10.12.11
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
     devDependencies:
       '@pnpm/logger': 2.1.0
       '@pnpm/tslint-config': 'link:../../utils/tslint-config'
@@ -961,11 +1037,11 @@ importers:
     specifiers:
       '@pnpm/logger': 2.1.0
       '@pnpm/modules-yaml': 2.0.1
+      '@pnpm/shrinkwrap-file': 0.0.0
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
       '@pnpm/utils': 0.9.0
       '@types/node': 10.12.11
-      pnpm-shrinkwrap: 8.1.6
       rimraf: 2.6.2
       tslint: 5.11.0
       typescript: 3.1.6
@@ -992,6 +1068,8 @@ importers:
       '@pnpm/core-loggers': 'link:../core-loggers'
       '@pnpm/npm-resolver': /@pnpm/npm-resolver/2.2.7/@pnpm!logger@2.1.0
       '@pnpm/resolver-base': 2.0.0
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
+      '@pnpm/shrinkwrap-utils': 'link:../shrinkwrap-utils'
       '@pnpm/store-controller-types': 'link:../store-controller-types'
       '@pnpm/types': 'link:../types'
       '@pnpm/utils': 'link:../utils'
@@ -1001,7 +1079,6 @@ importers:
       dependency-path: 'link:../dependency-path'
       path-exists: 3.0.0
       pnpm-install-checks: 1.1.0
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       ramda: 0.26.1
       replace-string: 2.0.0
       semver: 5.6.0
@@ -1019,6 +1096,8 @@ importers:
       '@pnpm/npm-resolver': 2.2.7
       '@pnpm/resolve-dependencies': 'link:'
       '@pnpm/resolver-base': 2.0.0
+      '@pnpm/shrinkwrap-types': 0.0.0
+      '@pnpm/shrinkwrap-utils': 0.0.0
       '@pnpm/store-controller-types': 1.1.0
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
@@ -1029,7 +1108,6 @@ importers:
       dependency-path: 2.0.1
       path-exists: 3.0.0
       pnpm-install-checks: 1.1.0
-      pnpm-shrinkwrap: 8.1.6
       ramda: 0.26.1
       replace-string: 2.0.0
       rimraf: 2.6.2
@@ -1100,11 +1178,12 @@ importers:
   packages/shamefully-flatten:
     dependencies:
       '@pnpm/pkgid-to-filename': 2.0.0
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
+      '@pnpm/shrinkwrap-utils': 'link:../shrinkwrap-utils'
       '@pnpm/symlink-dependency': 'link:../symlink-dependency'
       '@types/node': 10.12.11
       '@types/ramda': 0.25.34
       dependency-path: 'link:../dependency-path'
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       ramda: 0.26.1
     devDependencies:
       '@pnpm/logger': 2.1.0
@@ -1116,12 +1195,13 @@ importers:
     specifiers:
       '@pnpm/logger': 2.1.0
       '@pnpm/pkgid-to-filename': 2.0.0
+      '@pnpm/shrinkwrap-types': 0.0.0
+      '@pnpm/shrinkwrap-utils': 0.0.0
       '@pnpm/symlink-dependency': 1.1.0
       '@pnpm/tslint-config': 0.0.0
       '@types/node': 10.12.11
       '@types/ramda': 0.25.34
       dependency-path: 2.0.1
-      pnpm-shrinkwrap: 8.1.6
       ramda: 0.26.1
       rimraf: 2.6.2
       ts-node: 6.2.0
@@ -1130,20 +1210,14 @@ importers:
   packages/shrinkwrap:
     dependencies:
       '@pnpm/resolver-base': 2.0.0
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
       '@pnpm/types': 'link:../types'
       '@types/js-yaml': 3.11.2
       '@types/node': 10.12.11
       '@types/ramda': 0.25.39
       dependency-path: 'link:../dependency-path'
       get-npm-tarball-url: 2.0.1
-      js-yaml: 3.12.0
-      mkdirp-promise: 5.0.1
-      normalize-path: 3.0.0
       ramda: 0.26.1
-      read-yaml-file: 1.1.0
-      rimraf-then: 1.0.1
-      util.promisify: 1.0.0
-      write-file-atomic: 2.3.0
     devDependencies:
       '@pnpm/logger': 2.1.0
       '@pnpm/tslint-config': 'link:../../utils/tslint-config'
@@ -1161,6 +1235,7 @@ importers:
     specifiers:
       '@pnpm/logger': 2.1.0
       '@pnpm/resolver-base': 2.0.0
+      '@pnpm/shrinkwrap-types': ^0.0.0
       '@pnpm/tslint-config': 0.0.0
       '@pnpm/types': 2.0.0
       '@types/js-yaml': 3.11.2
@@ -1170,10 +1245,59 @@ importers:
       '@types/tempy': 0.2.0
       dependency-path: 2.0.1
       get-npm-tarball-url: 2.0.1
+      pnpm-shrinkwrap: 'link:'
+      ramda: 0.26.1
+      rimraf: 2.6.2
+      tape: 4.9.1
+      tempy: 0.2.1
+      ts-node: 6.2.0
+      tslint: 5.11.0
+      typescript: 3.1.6
+      write-yaml-file: 2.0.0
+      yaml-tag: 1.1.0
+  packages/shrinkwrap-file:
+    dependencies:
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
+      '@pnpm/types': 'link:../types'
+      '@types/js-yaml': 3.11.2
+      '@types/node': 10.12.11
+      '@types/ramda': 0.25.39
       js-yaml: 3.12.0
       mkdirp-promise: 5.0.1
       normalize-path: 3.0.0
-      pnpm-shrinkwrap: 'link:'
+      ramda: 0.26.1
+      read-yaml-file: 1.1.0
+      rimraf-then: 1.0.1
+      util.promisify: 1.0.0
+      write-file-atomic: 2.3.0
+    devDependencies:
+      '@pnpm/logger': 2.1.0
+      '@pnpm/shrinkwrap-file': 'link:'
+      '@pnpm/tslint-config': 'link:../../utils/tslint-config'
+      '@types/tape': 4.2.32
+      '@types/tempy': 0.2.0
+      rimraf: 2.6.2
+      tape: 4.9.1
+      tempy: 0.2.1
+      ts-node: 6.2.0
+      tslint: /tslint/5.11.0/typescript@3.1.6
+      typescript: 3.1.6
+      write-yaml-file: 2.0.0
+      yaml-tag: 1.1.0
+    specifiers:
+      '@pnpm/logger': 2.1.0
+      '@pnpm/shrinkwrap-file': 'link:'
+      '@pnpm/shrinkwrap-types': ^0.0.0
+      '@pnpm/tslint-config': 0.0.0
+      '@pnpm/types': 2.0.0
+      '@types/js-yaml': 3.11.2
+      '@types/node': 10.12.11
+      '@types/ramda': 0.25.39
+      '@types/tape': 4.2.32
+      '@types/tempy': 0.2.0
+      js-yaml: 3.12.0
+      mkdirp-promise: 5.0.1
+      normalize-path: 3.0.0
       ramda: 0.26.1
       read-yaml-file: 1.1.0
       rimraf: 2.6.2
@@ -1185,6 +1309,61 @@ importers:
       typescript: 3.1.6
       util.promisify: 1.0.0
       write-file-atomic: 2.3.0
+      write-yaml-file: 2.0.0
+      yaml-tag: 1.1.0
+  packages/shrinkwrap-types:
+    devDependencies:
+      '@pnpm/tslint-config': 'link:../../utils/tslint-config'
+      tslint: /tslint/5.11.0/typescript@3.1.6
+      typescript: 3.1.6
+    specifiers:
+      '@pnpm/tslint-config': 0.0.0
+      tslint: 5.11.0
+      typescript: 3.1.6
+  packages/shrinkwrap-utils:
+    dependencies:
+      '@pnpm/resolver-base': 2.0.0
+      '@pnpm/shrinkwrap-types': 'link:../shrinkwrap-types'
+      '@pnpm/types': 'link:../types'
+      '@types/js-yaml': 3.11.2
+      '@types/node': 10.12.11
+      '@types/ramda': 0.25.39
+      dependency-path: 'link:../dependency-path'
+      get-npm-tarball-url: 2.0.1
+      ramda: 0.26.1
+    devDependencies:
+      '@pnpm/shrinkwrap-utils': 'link:'
+      '@pnpm/tslint-config': 'link:../../utils/tslint-config'
+      '@types/tape': 4.2.32
+      '@types/tempy': 0.2.0
+      rimraf: 2.6.2
+      tape: 4.9.1
+      tempy: 0.2.1
+      ts-node: 6.2.0
+      tslint: /tslint/5.11.0/typescript@3.1.6
+      typescript: 3.1.6
+      write-yaml-file: 2.0.0
+      yaml-tag: 1.1.0
+    specifiers:
+      '@pnpm/resolver-base': 2.0.0
+      '@pnpm/shrinkwrap-types': ^0.0.0
+      '@pnpm/shrinkwrap-utils': 'link:'
+      '@pnpm/tslint-config': 0.0.0
+      '@pnpm/types': 2.0.0
+      '@types/js-yaml': 3.11.2
+      '@types/node': 10.12.11
+      '@types/ramda': 0.25.39
+      '@types/tape': 4.2.32
+      '@types/tempy': 0.2.0
+      dependency-path: 2.0.1
+      get-npm-tarball-url: 2.0.1
+      ramda: 0.26.1
+      rimraf: 2.6.2
+      tape: 4.9.1
+      tempy: 0.2.1
+      ts-node: 6.2.0
+      tslint: 5.11.0
+      typescript: 3.1.6
       write-yaml-file: 2.0.0
       yaml-tag: 1.1.0
   packages/store-controller-types:
@@ -1207,6 +1386,7 @@ importers:
     dependencies:
       '@pnpm/check-package': 2.0.0
       '@pnpm/core-loggers': 'link:../core-loggers'
+      '@pnpm/filter-shrinkwrap': 'link:../filter-shrinkwrap'
       '@pnpm/fs-locker': 1.0.3
       '@pnpm/headless': 'link:../headless'
       '@pnpm/lifecycle': /@pnpm/lifecycle/3.0.2/@pnpm!logger@2.1.0
@@ -1215,12 +1395,15 @@ importers:
       '@pnpm/modules-yaml': 'link:../modules-yaml'
       '@pnpm/package-requester': 'link:../package-requester'
       '@pnpm/pkgid-to-filename': 2.0.0
+      '@pnpm/prune-shrinkwrap': 'link:../prune-shrinkwrap'
       '@pnpm/read-manifests': 'link:../read-manifests'
       '@pnpm/read-modules-dir': 'link:../read-modules-dir'
       '@pnpm/read-package-json': 1.0.1
       '@pnpm/resolve-dependencies': 'link:../resolve-dependencies'
       '@pnpm/resolver-base': 2.0.0
       '@pnpm/shamefully-flatten': 'link:../shamefully-flatten'
+      '@pnpm/shrinkwrap-file': 'link:../shrinkwrap-file'
+      '@pnpm/shrinkwrap-utils': 'link:../shrinkwrap-utils'
       '@pnpm/store-controller-types': 'link:../store-controller-types'
       '@pnpm/symlink-dependency': 'link:../symlink-dependency'
       '@pnpm/types': 'link:../types'
@@ -1257,7 +1440,6 @@ importers:
       p-filter: 1.0.0
       p-limit: 2.0.0
       path-absolute: 1.0.1
-      pnpm-shrinkwrap: 'link:../shrinkwrap'
       ramda: 0.26.1
       remove-all-except-outer-links: 1.0.3
       replace-string: 2.0.0
@@ -1315,6 +1497,7 @@ importers:
       '@pnpm/core-loggers': 1.0.0
       '@pnpm/default-fetcher': 2.0.6
       '@pnpm/default-resolver': 2.0.7
+      '@pnpm/filter-shrinkwrap': ^0.0.0
       '@pnpm/fs-locker': 1.0.3
       '@pnpm/headless': 1.0.4
       '@pnpm/lifecycle': 3.0.2
@@ -1326,12 +1509,15 @@ importers:
       '@pnpm/package-store': 1.2.1
       '@pnpm/pkgid-to-filename': 2.0.0
       '@pnpm/prepare': 0.0.0
+      '@pnpm/prune-shrinkwrap': ^0.0.0
       '@pnpm/read-manifests': 1.0.2
       '@pnpm/read-modules-dir': 1.0.0
       '@pnpm/read-package-json': 1.0.1
       '@pnpm/resolve-dependencies': 2.0.0
       '@pnpm/resolver-base': 2.0.0
       '@pnpm/shamefully-flatten': 1.0.4
+      '@pnpm/shrinkwrap-file': ^0.0.0
+      '@pnpm/shrinkwrap-utils': ^0.0.0
       '@pnpm/store-controller-types': 1.1.0
       '@pnpm/store-path': 1.0.4
       '@pnpm/symlink-dependency': 1.1.0
@@ -1389,7 +1575,6 @@ importers:
       path-exists: 3.0.0
       path-name: 1.0.0
       pnpm-registry-mock: 2.4.0
-      pnpm-shrinkwrap: 8.1.6
       ramda: 0.26.1
       read-pkg: 4.0.1
       read-yaml-file: 1.1.0
@@ -1818,7 +2003,7 @@ packages:
       integrity: sha512-4RMlHlihFTz31BX3MkGjVXUjO4jxquDzgE67O1jeu89mmcUa3Zac2AJxnI2tN6zvy/4hBHpTTov4BO9fHndu+Q==
   /@pnpm/fs-locker/1.0.3:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
       mkdirp-promise: 5.0.1
       proper-lockfile: 2.0.1
     dev: false
@@ -1828,7 +2013,7 @@ packages:
       integrity: sha512-ECFtJCNpqeyjSGwhv+IgnqDRLQclI/d6GRkq+UxyPW3jSvB7AK8qjxuMNFoNG78pwwi1zuJpMLgMvaYPHI/IMA==
   /@pnpm/git-fetcher/1.0.1:
     dependencies:
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       dint: 3.0.2
       execa: 1.0.0
       path-temp: 1.0.0
@@ -1841,7 +2026,7 @@ packages:
   /@pnpm/git-resolver/1.0.1:
     dependencies:
       '@pnpm/resolver-base': 2.0.0
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       '@types/semver': 5.5.0
       got: 8.3.2
       graceful-git: 2.0.0
@@ -1874,7 +2059,7 @@ packages:
       '@pnpm/read-package-json': 1.0.1
       '@pnpm/types': 2.0.0
       '@types/mz': 0.0.32
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
       '@types/ramda': 0.26.0
       '@zkochan/cmd-shim': 3.1.0
       arr-flatten: 1.1.0
@@ -1895,7 +2080,7 @@ packages:
       '@pnpm/resolver-base': 2.0.0
       '@pnpm/types': 2.0.0
       '@types/graceful-fs': 4.1.2
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       graceful-fs: 4.1.15
       normalize-path: 3.0.0
       ssri: 6.0.1
@@ -1905,7 +2090,7 @@ packages:
       integrity: sha512-nGg1CRRTArx4pxRI2W8iWQqymb4yuvHae3tVt0IWhmG4kV31A3ZBUfFbPGqDWGYPdJyktuCDfDImNAJrmjEItQ==
   /@pnpm/logger/2.1.0:
     dependencies:
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       bole: 3.0.2
       ndjson: 1.5.0
     engines:
@@ -1919,7 +2104,7 @@ packages:
       '@pnpm/types': 2.0.0
       '@types/load-json-file': 2.0.7
       '@types/mem': 1.1.2
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       '@types/semver': 5.5.0
       credentials-by-uri: 1.0.0
       encode-registry: 1.1.0
@@ -1977,7 +2162,7 @@ packages:
       integrity: sha512-+pYMLgBlp242xn0qEK3JsU2fNgMSejTflzu1NLXV8J9QTIxTILmxz5ayFcudtimKP0o49dnMysoWihQ/ven7wA==
   /@pnpm/store-path/1.0.4:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
       '@types/touch': 3.1.1
       can-link: 1.0.2
       mkdirp-promise: 5.0.1
@@ -1997,7 +2182,7 @@ packages:
       '@types/graceful-fs': 4.1.2
       '@types/mem': 1.1.2
       '@types/mz': 0.0.32
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       '@types/retry': 0.10.2
       '@types/rimraf': 2.0.2
       credentials-by-uri: 1.0.0
@@ -2069,7 +2254,7 @@ packages:
       integrity: sha512-v+dxizsFVyXgD3EpFuqT9YjdEjbJmPxNf1QIX9ohZOhxh1ZF2yhqv3vYaeum9lg3VghhxS5S0a6yldN9J9lPEQ==
   /@types/byline/4.2.31:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     resolution:
       integrity: sha1-DmH8ucA+BH0hxEllVMcRYperYM0=
   /@types/camelcase-keys/4.0.0:
@@ -2088,7 +2273,7 @@ packages:
       integrity: sha512-KEIlhXnIutzKwRbQkGWb/I4HFqBuUykAdHgDED6xqwXJfONCjF5VoE0cXEiurh3XauygxzeDzgtXUqvLkxFzzA==
   /@types/fs-extra/5.0.4:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     dev: true
     resolution:
       integrity: sha512-DsknoBvD8s+RFfSGjmERJ7ZOP1HI0UZRA3FSI+Zakhrc/Gy26YQsLI+m5V5DHxroHRJqCDLKJp7Hixn8zyaF7g==
@@ -2100,18 +2285,18 @@ packages:
     dependencies:
       '@types/events': 1.2.0
       '@types/minimatch': 3.0.3
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     resolution:
       integrity: sha512-1Bh06cbWJUHMC97acuD6UMG29nMt0Aqz1vF3guLfG+kHHJhy3AyohZFFxYk2f7Q1SQIrNwvncxAE0N/9s70F2w==
   /@types/got/8.3.4:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     dev: false
     resolution:
       integrity: sha512-0AbIQzpqQafYPFg26nwg5PfNgPLYwHeTP6z5F1u+5oypLIdpx34o5r8wYTTj3X3YYF2yPHtZPO/KYwlI8Nu/hQ==
   /@types/graceful-fs/4.1.2:
     dependencies:
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
     resolution:
       integrity: sha512-epDhsJAVxJsWfeqpzEDFhLnhHMbHie/VMFY+2Hvt5p7FemeW5ELM+6gcVYL/ZsUwdu3zrWpDE3VUTddXW+EMYg==
   /@types/is-windows/0.2.0:
@@ -2137,32 +2322,36 @@ packages:
       integrity: sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
   /@types/mkdirp/0.5.2:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     resolution:
       integrity: sha512-U5icWpv7YnZYGsN4/cmh3WD2onMY0aJIiTE6+51TwJCttdHvtCYmkBNOobHlXwrJRL0nkH9jH4kD+1FAdMN4Tg==
   /@types/mz/0.0.32:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     resolution:
       integrity: sha512-cy3yebKhrHuOcrJGkfwNHhpTXQLgmXSv1BX+4p32j+VUQ6aP2eJ5cL7OvGcAQx75fCTFaAIIAKewvqL+iwSd4g==
   /@types/ncp/2.0.1:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     dev: true
     resolution:
       integrity: sha512-TeiJ7uvv/92ugSqZ0v9l0eNXzutlki0aK+R1K5bfA5SYUil46ITlxLW4iNTCf55P4L5weCmaOdtxGeGWvudwPg==
   /@types/nock/9.3.0:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     dev: true
     resolution:
       integrity: sha512-ZHf/X8rTQ5Tb1rHjxIJYqm55uO265agE3G7NoSXVa2ep+EcJXgB2fsme+zBvK7MhrxTwkC/xkB6THyv50u0MGw==
   /@types/node/10.12.10:
+    dev: false
     resolution:
       integrity: sha512-8xZEYckCbUVgK8Eg7lf5Iy4COKJ5uXlnIOnePN0WUwSQggy9tolM+tDJf7wMOnT/JT/W9xDYIaYggt3mRV2O5w==
   /@types/node/10.12.11:
     resolution:
       integrity: sha512-3iIOhNiPGTdcUNVCv9e5G7GotfvJJe2pc9w2UgDXlUwnxSZ3RgcUocIU+xYm+rTU54jIKih998QE4dMOyMN1NQ==
+  /@types/node/10.12.12:
+    resolution:
+      integrity: sha512-Pr+6JRiKkfsFvmU/LK68oBRCQeEg36TyAbPhc2xpez24OOZZCuoIhWGTd39VZy6nGafSbxzGouFPTFD/rR1A0A==
   /@types/node/8.10.38:
     dev: false
     resolution:
@@ -2176,7 +2365,7 @@ packages:
       integrity: sha1-8Z3z20yX7hRZonQAKDIKcdcJZM4=
   /@types/npm/2.0.29:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     dev: false
     resolution:
       integrity: sha512-McqGDdeT1tSMu8sPaL0ya7xBwojQYKGVwCrlPNBcaF+o+H4wLNH03nYRTfycU11Xdu8eziEb4cgdGmu4VF/NWA==
@@ -2230,7 +2419,7 @@ packages:
   /@types/rimraf/2.0.2:
     dependencies:
       '@types/glob': 7.1.1
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     resolution:
       integrity: sha512-Hm/bnWq0TCy7jmjeN5bKYij9vw5GrDFWME4IuxV08278NtU/VdGbzsBohcCUJ7+QMqmUq5hpRKB39HeQWJjztQ==
   /@types/semver/5.5.0:
@@ -2246,7 +2435,7 @@ packages:
       integrity: sha1-m2PUU6a1SqhJGCIHcRoIvo7qSK4=
   /@types/tape/4.2.32:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.12
     resolution:
       integrity: sha512-xil0KO5wkPoixdBWGIGolPv9dekf6dVkjjJLAFYchfKcd4DICou67rgGCIO7wAh3i5Ff/6j9IDgZz+GU9cMaqQ==
   /@types/tempy/0.2.0:
@@ -2255,7 +2444,7 @@ packages:
       integrity: sha512-YaX74QljqR45Xu7dd22wMvzTS+ItUiSyDl9XJl6WTgYNE09r2TF+mV2FDjWRM5Sdzf9C9dXRTUdz9J5SoEYxXg==
   /@types/touch/3.1.1:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     resolution:
       integrity: sha512-6qjr7Erk0b9FkZSu17wUJaWhmzUgGfQuec7eIwl9cP7V/YO/k9IcMnHSwAjxAeadC5guq9rwHcoij7PT1RkO1w==
   /@types/update-notifier/2.5.0:
@@ -2264,7 +2453,7 @@ packages:
       integrity: sha512-YV+ZcSIiv30GhLM7WwxI+bsbcW34d3Yhl2JSFBNFL6qtfsoI9++hogxz+jTqeS86ynKcMUE0AsnLWQynfJnsfA==
   /@types/uuid/3.4.4:
     dependencies:
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
     dev: false
     resolution:
       integrity: sha512-tPIgT0GUmdJQNSHxp0X2jnpQfBSTfGxUMc/2CXBU2mnyTFVYVa2ojpoQ74w0U2yn2vw3jnC640+77lkFFpdVDw==
@@ -2635,10 +2824,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
-  /array-flatten/2.1.1:
+  /array-flatten/2.1.2:
     dev: false
     resolution:
-      integrity: sha1-Qmu52oQJDBg42BLIFQryCoMx4pY=
+      integrity: sha512-hNfzcOV8W4NdualtqBFPyVO+54DSJuZGY9qT4pRroB6S9e3iiido2ISIC5h9R2sPJ8H3FHCIiEnsv1lPXO3KtQ==
   /array-from/2.1.1:
     dev: true
     resolution:
@@ -4534,7 +4723,7 @@ packages:
       integrity: sha1-oB6c2cnkkXFcmKdaQtXwu9EH/3Y=
   /fetch-from-npm-registry/1.0.0:
     dependencies:
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       make-fetch-happen: 4.0.1
     engines:
       node: '>=6'
@@ -5068,7 +5257,7 @@ packages:
       integrity: sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
   /graph-sequencer/2.0.0:
     dependencies:
-      array-flatten: 2.1.1
+      array-flatten: 2.1.2
       array-includes: 3.0.3
     dev: false
     resolution:
@@ -7501,7 +7690,7 @@ packages:
       integrity: sha1-VjRtR0nXjyNDDKDHE4UK75GqNh0=
   /parse-npm-tarball-url/2.0.0:
     dependencies:
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       semver-regex: 2.0.0
     engines:
       node: '>=6'
@@ -9107,7 +9296,7 @@ packages:
   /symlink-dir/2.0.2:
     dependencies:
       '@types/mz': 0.0.32
-      '@types/node': 10.12.10
+      '@types/node': 10.12.11
       graceful-fs: 4.1.15
       is-windows: 1.0.2
       mkdirp-promise: 5.0.1
@@ -9643,7 +9832,7 @@ packages:
       integrity: sha1-HAgkFQSBvHoB1J6Y8exmjYJBLzs=
   /unpack-stream/4.0.0:
     dependencies:
-      '@types/node': 10.12.11
+      '@types/node': 10.12.12
       decompress-maybe: 1.0.0
       ssri: 6.0.1
       tar-fs: 1.16.3
