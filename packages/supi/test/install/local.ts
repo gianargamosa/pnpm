@@ -144,6 +144,37 @@ test('tarball local package', async (t: tape.Test) => {
   }, 'a snapshot of the local dep tarball added to shrinkwrap.yaml')
 })
 
+testOnly('tarball local package from project directory', async (t: tape.Test) => {
+  const project = prepare(t, {
+    dependencies: {
+      'tar-pkg': 'file:tar-pkg-1.0.0.tgz',
+    },
+  })
+
+  await fs.copyFile(path.join(pathToLocalPkg('tar-pkg'), 'tar-pkg-1.0.0.tgz'), path.resolve('tar-pkg-1.0.0.tgz'))
+
+  await install(await testDefaults())
+
+  const m = project.requireModule('tar-pkg')
+
+  t.equal(m(), 'tar-pkg', 'tarPkg() is available')
+
+  const pkgJson = await readPkg()
+  const pkgSpec = `file:${normalizePath(pathToLocalPkg('tar-pkg/tar-pkg-1.0.0.tgz'))}`
+  t.deepEqual(pkgJson.dependencies, { 'tar-pkg': pkgSpec }, 'has been added to dependencies in package.json')
+
+  const shr = await project.loadShrinkwrap()
+  t.deepEqual(shr.packages[shr.dependencies['tar-pkg']], {
+    dev: false,
+    name: 'tar-pkg',
+    resolution: {
+      integrity: 'sha512-HP/5Rgt3pVFLzjmN9qJJ6vZMgCwoCIl/m2bPndYT283CUqnmFiMx0GeeIJ7SyK6TYoJM78SEvFEOQie++caHqw==',
+      tarball: `file:${normalizePath(path.relative(process.cwd(), pathToLocalPkg('tar-pkg/tar-pkg-1.0.0.tgz')))}`,
+    },
+    version: '1.0.0',
+  }, 'a snapshot of the local dep tarball added to shrinkwrap.yaml')
+})
+
 test('update tarball local package when its integrity changes', async (t) => {
   const project = prepare(t)
 
